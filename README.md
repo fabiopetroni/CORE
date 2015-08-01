@@ -1,13 +1,13 @@
 # CORE
 Context-Aware Open Relation Extraction with Factorization Machines
 
-Here you find the source code and data for the following publication:
+Here you find the source code and data used in the following publication:
 
 -Fabio Petroni, Luciano Del Corro and Rainer Gemulla (2015): "CORE: Context-Aware Open Relation Extraction with Factorization Machines". EMNLP, 2015.
 
 If you use them please cite the paper.
 
-In the following we assume that top level project directory. We also assume that you have unpacked the CoreData.zip archive into a CoreData subdirectory. 
+In the following we assume that you are in the top level project directory. We also assume that you have received and unpacked the CoreData.zip archive into a CoreData subdirectory. 
 
 ###Convert the input data in a libFM compliant format
 
@@ -21,15 +21,16 @@ For example, if you want to recreate the input data for the CORE+mtw model, you 
 cd CoreScriptLibFMConverter
 mkdir ../CORE+mtw
 sbt “run ../CoreData/ ../CORE+mtw mtw”
+cd ..
 ```
 
-This will create in the CoreScriptLibFMConverter directory a folder CORE+mtw with the data.
+This will create in the top level project directory a folder CORE+mtw/ with the data for the CORE+mtw model.
 
 
 
 ###Training the CORE Model
 
-To train the CORE model (e.g., the CORE+mtw model created in the first phase) you need to download the modified version of libFM. You can find it here: https://github.com/fabiopetroni/libfm.
+To train the CORE model (e.g., the CORE+mtw model created in the previous step) you need to download a modified version of libFM. You can find it here: https://github.com/fabiopetroni/libfm.
 
 Please see the [libFM - Manual for the BPR extension](http://www.fabiopetroni.com/Download/manual_libFM_with_BPR_extension.pdf) for details about how to use the BPR extension.
 
@@ -59,16 +60,17 @@ The AnnotationManager script allows to annotate new facts in the output file (e.
 
 You can find the detail of the script in the folder.
 
-For example, if you want to annotate the facts is the CORE+mtw.txt file, for the relation "person/company$", you have to launch the following command:
+For example, if you want to annotate the facts in the CORE+mtw.txt file, for the relation "person/company$", you have to launch the following command:
 
 ```
 cd AnnotationManager
-sbt “run path_to/CORE+mtw.txt ../CoreData/ annotations person/company$”
+sbt “run ../CORE+mtw.txt ../CoreData/ annotations person/company$”
+cd ..
 ```
 
 ###Evaluation
 
-The EvaluationManager directory contain the two tables in the paper (i.e., table_Freebase_relations.tex and table_surface_relation.tex) and all the output files considered (in the results subfolder).
+The EvaluationManager directory contains the two tables presented in the paper (in two files table_Freebase_relations.tex and table_surface_relation.tex) and all the output files created by the considered models (in the results/ subfolder).
 
 The EvaluationManager script allows to evaluate the performance of several output file (included your own solution).
 
@@ -88,7 +90,8 @@ sbt "run surface ../AnnotationManager/annotations/ results/PITF.txt:PITS results
 
 for Freebase relations
 
-```
-sbt "run Freebase ../AnnotationManager/annotations/ results/PITF.txt:PITS results/NFE.txt:NFE results/CORE.txt:CORE results/CORE+m.txt:CORE+m results/CORE+t.txt:CORE+t results/CORE+w.txt:CORE+w results/CORE+mt.txt:CORE+mt results/CORE+mtw.txt:CORE+mtw"
-```
+
+####Final notes
+
+If you have problems while executing the sbt commands, insert the " characted with your keyboard (and not with copy and paste).
 
