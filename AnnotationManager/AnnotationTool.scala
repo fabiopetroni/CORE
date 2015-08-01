@@ -153,7 +153,7 @@ object AnnotationTool {
      */
     val relation = Parameters.pattern ;
     val pattern = relation.r //company
-    val previousFileName = "latest.tsv" 
+    var previousFileName = "latest.tsv" 
     
     val newFileName = {
       val cal = Calendar.getInstance()
@@ -164,7 +164,7 @@ object AnnotationTool {
     projDir.mkdirs()
 
     val sourceFile = new File(sourceName)
-    val previousFile = new File(projDir, previousFileName)
+    var previousFile = new File(projDir, previousFileName)
     val newFile = new File(projDir, newFileName)
     val out = new PrintStream(newFile)
 
@@ -173,11 +173,20 @@ object AnnotationTool {
 
     //read in previous file if exists
     //Format: Tuple, System,
-    val annotations = if (previousFile.exists())
+    var annotations = if (previousFile.exists())
       loadAnnotations(new FileInputStream(previousFile), Some(out))
     else
       new mutable.HashMap[(Seq[Any], String), Annotation]
-    println("Previous Annotations: " + annotations.size)
+      
+      if (annotations.size==0){
+  	    var previousFileName = "2015-08-01-12-04-09.tsv" 
+  	    var previousFile = new File(projDir, previousFileName)	
+  	    annotations = if (previousFile.exists())
+  	    	AnnotationTool.loadAnnotations(new FileInputStream(previousFile))
+  	    else
+  	    	new mutable.HashMap[(Seq[Any], String), AnnotationTool.Annotation]    
+      }
+      println("Previous Annotations: " + annotations.size)
 
     //set up new softlink
     setupSoftlink(new File(projDir, "latest.tsv"), newFile)

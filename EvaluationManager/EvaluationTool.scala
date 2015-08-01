@@ -217,14 +217,23 @@ object EvaluationTool {
   def evaluate(rankFiles: Seq[File], relPatterns: Seq[Regex], names: Seq[String]) {
    
     val projDirName = Parameters.annotation_folder
-    val previousFileName = "latest.tsv" 
+    var previousFileName = "latest.tsv" 
     val projDir = new File(projDirName)
     projDir.mkdirs()
-    val previousFile = new File(projDir, previousFileName)
-    val annotations = if (previousFile.exists())
+    var previousFile = new File(projDir, previousFileName)
+    var annotations = if (previousFile.exists())
       AnnotationTool.loadAnnotations(new FileInputStream(previousFile))
     else
       new mutable.HashMap[(Seq[Any], String), AnnotationTool.Annotation]
+      
+    if (annotations.size==0){
+	    var previousFileName = "2015-08-01-12-04-09.tsv" 
+	    var previousFile = new File(projDir, previousFileName)	
+	    annotations = if (previousFile.exists())
+	    	AnnotationTool.loadAnnotations(new FileInputStream(previousFile))
+	    else
+	    	new mutable.HashMap[(Seq[Any], String), AnnotationTool.Annotation]    
+    }
     println("Previous Annotations: " + annotations.size)
       
     val calculatePrecisionAtKs = Set(50, 100, 200, 300, 400)  
