@@ -82,13 +82,13 @@ For example, if you want to recreate the two tables in the paper you have to lau
 cd EvaluationManager
 ```
 
-for surface relations
+for surface relations:
 
 ```
 sbt "run surface ../AnnotationManager/annotations/ results/PITF.txt:PITS results/NFE.txt:NFE results/CORE.txt:CORE results/CORE+m.txt:CORE+m results/CORE+t.txt:CORE+t results/CORE+w.txt:CORE+w results/CORE+mt.txt:CORE+mt results/CORE+mtw.txt:CORE+mtw"
 ```
 
-for Freebase relations
+for Freebase relations:
 
 ```
 sbt "run Freebase ../AnnotationManager/annotations/ results/PITF.txt:PITS results/NFE.txt:NFE results/CORE.txt:CORE results/CORE+m.txt:CORE+m results/CORE+t.txt:CORE+t results/CORE+w.txt:CORE+w results/CORE+mt.txt:CORE+mt results/CORE+mtw.txt:CORE+mtw"
