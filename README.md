@@ -90,6 +90,10 @@ sbt "run surface ../AnnotationManager/annotations/ results/PITF.txt:PITS results
 
 for Freebase relations
 
+```
+sbt "run Freebase ../AnnotationManager/annotations/ results/PITF.txt:PITS results/NFE.txt:NFE results/CORE.txt:CORE results/CORE+m.txt:CORE+m results/CORE+t.txt:CORE+t results/CORE+w.txt:CORE+w results/CORE+mt.txt:CORE+mt results/CORE+mtw.txt:CORE+mtw"
+```
+
 
 ####Final notes
 
