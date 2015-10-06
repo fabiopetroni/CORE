@@ -30,7 +30,7 @@ This will create in the top level project directory a folder CORE+mtw/ with the 
 
 ###Training the CORE Model
 
-To train the CORE model (e.g., the CORE+mtw model created in the previous step) you need to download a modified version of libFM. You can find it here: https://github.com/fabiopetroni/libfm.
+To train the CORE model (e.g., the CORE+mtw model created in the previous step) you need to download a modified version of libFM. You can find it here: https://github.com/fabiopetroni/libfm_with_BPR.
 
 Please see the [libFM - Manual for the BPR extension](http://www.fabiopetroni.com/Download/manual_libFM_with_BPR_extension.pdf) for details about how to use the BPR extension.
 
