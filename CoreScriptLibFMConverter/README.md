@@ -6,7 +6,7 @@ Based on the publication:
 
 If you use the application please cite the paper.
 
-###Usage:
+### Usage:
 
 to execute the script:
 
@@ -24,7 +24,7 @@ Parameters:
 - `context_considered`: example mtw -> article metadata (m); tuple types (t); bag-of-words (w). default no context
 
 
-###Example
+### Example
 
 ```
 mkdir CORE+mtw
