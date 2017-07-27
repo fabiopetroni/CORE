@@ -9,7 +9,7 @@ If you use them please cite the paper.
 
 In the following we assume that you are in the top level project directory. We also assume that you have received and unpacked the CoreData.zip archive into a CoreData subdirectory. 
 
-###Convert the input data in a libFM compliant format
+### Convert the input data in a libFM compliant format
 
 The first step is to convert the row data in a libFM compliant format.
 To do so you can use the CoreScriptLibFMConverter.
@@ -28,7 +28,7 @@ This will create in the top level project directory a folder CORE+mtw/ with the 
 
 
 
-###Training the CORE Model
+### Training the CORE Model
 
 To train the CORE model (e.g., the CORE+mtw model created in the previous step) you need to download a modified version of libFM. You can find it here: https://github.com/fabiopetroni/libfm_with_BPR.
 
@@ -52,7 +52,7 @@ sort -g -r CORE+mtw_unsorted.txt > CORE+mtw.txt
 
 Now the file is ready to be analyzed.
 
-###Annotations
+### Annotations
 
 Previously annotations are available in the AnnotationManager/annotations/ directory.
 
@@ -68,7 +68,7 @@ sbt “run ../CORE+mtw.txt ../CoreData/ annotations person/company$”
 cd ..
 ```
 
-###Evaluation
+### Evaluation
 
 The EvaluationManager directory contains the two tables presented in the paper (in two files table_Freebase_relations.tex and table_surface_relation.tex) and all the output files created by the considered models (in the results/ subfolder).
 
@@ -95,7 +95,7 @@ sbt "run Freebase ../AnnotationManager/annotations/ results/PITF.txt:PITS result
 ```
 
 
-####Final notes
+#### Final notes
 
 If you have problems while executing the sbt commands, insert the " characted with your keyboard (and not with copy and paste).
 
