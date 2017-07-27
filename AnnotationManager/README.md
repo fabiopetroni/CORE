@@ -6,7 +6,7 @@ Based on the publication:
 
 If you use the application please cite the paper.
 
-###Usage:
+### Usage:
 
 to execute the script:
 
@@ -25,7 +25,7 @@ Parameters:
 - `pattern`: a regular expression that determines which relations should be included in the predictions to be annotated.
 
 
-###Example
+### Example
 
 ```
 sbt “run ../EvaluationManager/results/CORE+mtw.txt ../CoreData/ annotations person/company$”
