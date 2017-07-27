@@ -6,7 +6,7 @@ Based on the publication:
 
 If you use the application please cite the paper.
 
-###Usage:
+### Usage:
 
 to execute the script:
 
@@ -24,7 +24,7 @@ Parameters:
 - `OUTFILE1:NAME1 OUTFILE2:NAME2 ...`: the output files of the competing solutions to evaluate and a corresponding name.
 
 
-###Example
+### Example
 
 for surface relations
 
